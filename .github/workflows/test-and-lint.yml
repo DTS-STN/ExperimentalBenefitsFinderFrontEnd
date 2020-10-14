@@ -25,10 +25,10 @@ jobs:
           CI: true
 
       - name: Run Cypress end-to-end 🧪
-          uses: cypress-io/github-action@v1
-          env:
-            NODE_ENV: production
-            CI: true
-          with:
-            install: false
-            start: npm run start
+        uses: cypress-io/github-action@v1
+        env:
+          NODE_ENV: production
+          CI: true
+        with:
+          install: false
+          start: npm run start
