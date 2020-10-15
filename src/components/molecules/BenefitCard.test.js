@@ -61,15 +61,10 @@ it("renders non eligible benefits cards", () => {
   const { container } = render(<UnEligible {...UnEligible.args} />);
 
   const boxElement = container.querySelector("div");
-  const checkBoxElement = screen.getByRole("checkbox");
   const paragraphElement = screen.getByText(UnEligible.args.benefitDescription);
   const titleElement = screen.getByText(UnEligible.args.benefitTitle);
   const buttonComponent = screen.getByRole("button");
 
-  expect(checkBoxElement.checked).toBeFalsy();
-  expect(checkBoxElement.getAttribute("aria-label")).toBe(
-    UnEligible.args.checkBoxAriaLabelBy
-  );
   expect(paragraphElement).toBeTruthy();
   expect(titleElement).toBeTruthy();
   expect(buttonComponent).toHaveTextContent(UnEligible.args.moreInfoButtonText);

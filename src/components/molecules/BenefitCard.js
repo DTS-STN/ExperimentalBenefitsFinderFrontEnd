@@ -24,11 +24,13 @@ export function BenefitCard(props) {
           <h3 className="text-l">{props.benefitTitle}</h3>
           {props.benefitTag ? <small>{props.benefitTag}</small> : undefined}
         </div>
-        <CheckBox
-          checked={props.isSelected === true}
-          ariaLabel={props.checkBoxAriaLabelBy}
-          onChange={handleSelect}
-        />
+        {props.isEligible === false ? undefined : (
+          <CheckBox
+            checked={props.isSelected === true}
+            ariaLabel={props.checkBoxAriaLabelBy}
+            onChange={handleSelect}
+          />
+        )}
       </div>
       <p className="m-auto">{props.benefitDescription}</p>
       <ActionButton
