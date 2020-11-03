@@ -27,6 +27,10 @@ export function ActionButton(props) {
 
 ActionButton.propTypes = {
   /**
+   * This will add a img inside the button when needed
+   */
+  icon: PropTypes.string,
+  /**
    * The text that the button will display
    */
   text: PropTypes.string.isRequired,
