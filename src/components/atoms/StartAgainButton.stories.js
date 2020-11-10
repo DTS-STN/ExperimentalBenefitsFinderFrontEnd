@@ -12,7 +12,6 @@ export const Primary = Template.bind({});
 
 Primary.args = {
   notRound: true,
-  className: "bg-bg-button-gray hover:bg-bg-button-gray",
   buttonText: "Start again and clear answers",
-  icon: <span className="icon-loop2 my-1 mr-2" />,
+  icon: <span className="icon-loop2 my-1 mr-4" />,
 };

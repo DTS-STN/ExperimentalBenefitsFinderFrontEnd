@@ -13,7 +13,6 @@ export function StartAgainButton(props) {
     <ActionButton
       id="start"
       onClick={handleClick}
-      className={props.className}
       icon={props.icon}
       notRound={props.notRound}
       text={props.buttonText}
@@ -28,10 +27,6 @@ StartAgainButton.propTypes = {
   notRound: PropTypes.bool,
   /**
    * overiding class css
-   */
-  className: PropTypes.string,
-  /**
-   * Text inside the button
    */
   buttonText: PropTypes.string,
   /**
