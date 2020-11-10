@@ -15,12 +15,17 @@ export function StartAgainButton(props) {
       onClick={handleClick}
       className={props.className}
       icon={props.icon}
+      notRound={props.notRound}
       text={props.buttonText}
     ></ActionButton>
   );
 }
 
 StartAgainButton.propTypes = {
+  /**
+   * sm round to the button
+   */
+  notRound: PropTypes.bool,
   /**
    * overiding class css
    */
