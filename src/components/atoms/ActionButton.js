@@ -19,6 +19,7 @@ export function ActionButton(props) {
       onMouseLeave={props.onMouseLeave}
       id={props.id}
     >
+      {props.icon}
       {props.text}
       {props.children}
     </button>
@@ -29,7 +30,7 @@ ActionButton.propTypes = {
   /**
    * This will add a img inside the button when needed
    */
-  icon: PropTypes.string,
+  icon: PropTypes.element,
   /**
    * The text that the button will display
    */

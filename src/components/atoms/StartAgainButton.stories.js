@@ -11,6 +11,7 @@ const Template = (args) => <StartAgainButton {...args} />;
 export const Primary = Template.bind({});
 
 Primary.args = {
-  text: "Start again and clear answers",
-  icon: "icon-loop2",
+  className: "rounded-sm bg-bg-button-gray hover:bg-bg-button-gray",
+  buttonText: "Start again and clear answers",
+  icon: <span className="icon-loop2 my-1 mr-2" />,
 };

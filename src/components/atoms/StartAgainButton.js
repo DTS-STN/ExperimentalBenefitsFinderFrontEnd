@@ -10,25 +10,31 @@ export function StartAgainButton(props) {
   const handleClick = (event) => props.onClick(event.currentTarget.id);
 
   return (
-    <div className="md:flex">
-      <span className={props.icon} />
-      <ActionButton
-        id="start"
-        text={props.text}
-        onClick={handleClick}
-        img="icon-loop2"
-      ></ActionButton>
-    </div>
+    <ActionButton
+      id="start"
+      onClick={handleClick}
+      className={props.className}
+      icon={props.icon}
+      text={props.buttonText}
+    ></ActionButton>
   );
 }
 
 StartAgainButton.propTypes = {
   /**
-   * Text on top of the buttons
+   * overiding class css
    */
-  text: PropTypes.string,
-
+  className: PropTypes.string,
+  /**
+   * Text inside the button
+   */
+  buttonText: PropTypes.string,
+  /**
+   * Event Handler when button clicked
+   */
   onClick: PropTypes.func,
-
-  icon: PropTypes.string,
+  /**
+   * adding icon with icomoon inside the button
+   */
+  icon: PropTypes.element,
 };

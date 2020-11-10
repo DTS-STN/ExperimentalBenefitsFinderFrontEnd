@@ -25,6 +25,7 @@ module.exports = {
         "text-sel-link": "#20535d2",
         "text-vist-link": "#7834bc",
         "text-red-err": "#d3080c",
+        "bg-button-gray": "#4E4E4E",
       },
     },
   },
