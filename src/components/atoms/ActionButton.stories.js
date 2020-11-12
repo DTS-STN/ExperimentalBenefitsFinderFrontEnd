@@ -12,7 +12,7 @@ const Template = (args) => <ActionButton {...args} />;
 export const Primary = Template.bind({});
 export const Rounded = Template.bind({});
 export const WithCounter = Template.bind({});
-export const WithIcon = Template.bind({});
+export const StartAgain = Template.bind({});
 
 Primary.args = {
   text: "Example Action 🚀",
@@ -28,6 +28,8 @@ WithCounter.args = {
   invert: true,
   children: <FilteredBenefitsCounter count={10} />,
 };
-WithIcon.args = {
-  icon: <span className="icon-loop2" />,
+StartAgain.args = {
+  notRound: true,
+  icon: "icon-loop2 my-1 mr-4",
+  text: "Start again and clear answers",
 };
