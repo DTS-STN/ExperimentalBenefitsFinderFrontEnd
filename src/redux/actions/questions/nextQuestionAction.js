@@ -1,7 +1,11 @@
 import { GET_NEXT_QUESTION } from "./actionTypes";
 
 export const QUESTIONS = {
-  QUESTION: "",
+  QUESTION: [
+    { id: 1, question: "Are you a canadian resident?" },
+    { id: 2, question: "Are you a canadian resident/citizen " },
+    { id: 3, question: "Are you 16 or older" },
+  ],
 };
 
 export const nextQuestion = function (question_id) {
