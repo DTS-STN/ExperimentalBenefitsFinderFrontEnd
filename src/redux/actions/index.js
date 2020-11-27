@@ -1,18 +1,20 @@
-import { ACTION_TYPES as LANGUAGE_ACTION_TYPES } from "./language";
-import { ACTION_TYPES as QUESTION_ACTION_TYPES } from "./questions";
+// i18n actions
+export { changeLanguageCreator } from "./language";
 
-//Action types used on the reducers
+// network actions
+export {
+  networkRequestActionCreator,
+  networkReceivedActionCreator,
+  networkRequestFailedActionCreator,
+} from "./network";
 
-export const ACTION_TYPES = {
-  ...LANGUAGE_ACTION_TYPES,
-  ...QUESTION_ACTION_TYPES,
-};
+// benefit actions
+export {
+  selectBenefitActionCreator,
+  deselectBenefitActionCreator,
+} from "./benefits";
+export * from "./actionTypes";
 
-// State and functions also used on each reducer
-
-export { LANGUAGES, changeLanguageCreator } from "./language";
-export { QUESTION, nextQuestion } from "./questions";
-
-//
-// this file is just to setup the subfolders
-//
+// Questions actions
+//export { QUESTION, nextQuestion } from "./questions";         before
+export { nextQuestion } from "./questions";

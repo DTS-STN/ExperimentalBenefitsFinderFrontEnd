@@ -1,1 +1,1 @@
-// empty file
+export { question } from "./questionsReducer";

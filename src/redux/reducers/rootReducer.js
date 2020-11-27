@@ -1,8 +1,10 @@
-import { language } from "./language/languageReducer";
-import { questions } from "./questions/questionsReducer";
+import { language } from "./language";
+import { benefits } from "./benefits";
+import { questions } from "./questions";
 import { combineReducers } from "redux";
 
 export const rootReducer = combineReducers({
   language,
   questions,
+  benefits,
 });
