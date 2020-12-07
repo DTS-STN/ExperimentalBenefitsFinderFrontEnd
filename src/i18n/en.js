@@ -7,6 +7,12 @@ export const en = {
   benefitsNextPage: "next benefits page",
   benefitsPreviousPage: "previous benefits page",
   eligibleBenefitsHeader: "Benefits that apply to you",
+  filterHeader: "Filter by",
+  eligibleButtonText: "Eligible benefits",
+  helpButtonText: "Potential help",
+  othersButtonText: "Others",
+  emailButtonText: "Email",
+  printButtonText: "Print",
 
   //links
   departmentAndAgenciesLink: "https://www.canada.ca/en/government/dept.html",

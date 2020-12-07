@@ -8,7 +8,7 @@ import { ActionButton } from "../atoms/ActionButton";
 export function EmailPrint(props) {
   const handleClick = (event) => props.onClick(event.currentTarget.id);
   return (
-    <div className="flex text-gray-700">
+    <div className="flex justify-end text-gray-700">
       <ActionButton
         className={"shadow-none hover:text-black"}
         id="email"

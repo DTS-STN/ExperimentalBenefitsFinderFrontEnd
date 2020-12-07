@@ -12,11 +12,13 @@ import { getBenefits, getBenefitsCount } from "../redux/dispatchers/benefits";
 import { Page } from "../components/organisms/Page";
 import { PageDescription } from "../components/atoms/PageDescription";
 import { Title } from "../components/atoms/Title";
+import { BenefitFilter } from "../components/molecules/BenefitFilter";
 import { BenefitGrid } from "../components/organisms/BenefitGrid";
 import {
   deselectBenefitActionCreator,
   selectBenefitActionCreator,
 } from "../redux/actions/benefits";
+import { EmailPrint } from "../components/molecules/EmailPrint";
 
 export function Home() {
   const [triedFetchedBenefitsCount, setTriedFetchBenefitsCount] = useState(
@@ -95,6 +97,15 @@ export function Home() {
           data-cy="eligibleBenefitsHeader"
         >
           <h2 className="text-3xl mb-2">{t("eligibleBenefitsHeader")}</h2>
+          <BenefitFilter
+            text={t("filterHeader")}
+            eligibleText={t("eligibleButtonText")}
+            helpText={t("helpButtonText")}
+            othersText={t("othersButtonText")}
+            eligibleCount={0}
+            helpCount={0}
+            othersCount={0}
+          />
           <BenefitGrid
             dataCy={"home-page-benefit-grid"}
             benefitMoreInfoButtonText={t("benefitsMoreInformation")}
@@ -106,6 +117,10 @@ export function Home() {
             numberOfRows={2}
             onBenefitSelect={onBenefitSelect}
             benefits={benefitsData}
+          />
+          <EmailPrint
+            emailText={t("emailButtonText")}
+            printText={t("printButtonText")}
           />
         </section>
       </main>

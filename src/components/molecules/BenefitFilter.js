@@ -10,33 +10,32 @@ export function BenefitFilter(props) {
   const handleClick = (event) => props.onFilter(event.currentTarget.id);
 
   return (
-    <div className="w-full">
-      <p className="text-text-gray-dk leading-none font-bold">{props.text}</p>
-      <div className="w-full flex flex-col md:flex-row p-2">
+    <div className="w-full py-2">
+      <p className="text-text-gray-dk leading-none text-sm">{props.text}</p>
+      <div className="w-full flex flex-col md:flex-row py-2">
         <ActionButton
           id="eligible"
           text={props.eligibleText}
-          invert={props.isSelectedEligible === false}
+          invert={true}
           onClick={handleClick}
-          className={"ml-0 bg-bg-gray-dk text-white hover:bg-black"}
         >
           <FilteredBenefitsCounter count={props.eligibleCount} />
         </ActionButton>
         <ActionButton
           id="help"
           text={props.helpText}
-          invert={props.isSelectedHelp === false}
+          invert={true}
           onClick={handleClick}
-          className={"ml-0 md:ml-2 bg-bg-gray-dk text-white hover:bg-black"}
+          classInvert={"ml-0 md:ml-2"}
         >
           <FilteredBenefitsCounter count={props.helpCount} />
         </ActionButton>
         <ActionButton
           id="others"
           text={props.othersText}
-          invert={props.isSelectedOthers === false}
+          invert={true}
           onClick={handleClick}
-          className={"ml-0 md:ml-2 bg-bg-gray-dk text-white hover:bg-black"}
+          classInvert={"ml-0 md:ml-2"}
         >
           <FilteredBenefitsCounter count={props.othersCount} />
         </ActionButton>
