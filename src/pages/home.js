@@ -18,6 +18,7 @@ import {
   deselectBenefitActionCreator,
   selectBenefitActionCreator,
 } from "../redux/actions/benefits";
+import { BenefitsCounter } from "../components/atoms/BenefitsCounter";
 import { EmailPrint } from "../components/molecules/EmailPrint";
 
 export function Home() {
@@ -92,6 +93,10 @@ export function Home() {
         <PageDescription dataCy={"home-page-description"}>
           {t("pageDescription")}
         </PageDescription>
+        <div className="flex mb-12">
+          {/* Question component here */}
+          <BenefitsCounter counter={benefitsCount} text={t("totalBenefits")} />
+        </div>
         <section
           className="border-t border-b pt-2 pb-2"
           data-cy="eligibleBenefitsHeader"

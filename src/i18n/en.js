@@ -13,6 +13,7 @@ export const en = {
   othersButtonText: "Others",
   emailButtonText: "Email",
   printButtonText: "Print",
+  totalBenefits: "Total benefits",
 
   //links
   departmentAndAgenciesLink: "https://www.canada.ca/en/government/dept.html",

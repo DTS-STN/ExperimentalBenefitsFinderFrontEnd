@@ -6,11 +6,11 @@ import PropTypes from "prop-types";
  */
 export function BenefitsCounter(props) {
   return (
-    <div className="text-center m-auto">
-      <div className="-mb-8" style={{ fontSize: "100px" }}>
+    <div className="text-center m-auto mr-0">
+      <div className="-mb-4" style={{ fontSize: "100px" }}>
         {props.counter}
       </div>
-      <p className="text-base">{props.text}</p>
+      <p className="text-sm">{props.text}</p>
     </div>
   );
 }

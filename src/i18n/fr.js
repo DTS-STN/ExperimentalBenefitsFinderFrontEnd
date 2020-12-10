@@ -14,6 +14,7 @@ export const fr = {
   othersButtonText: "Autres",
   emailButtonText: "Email",
   printButtonText: "Impression",
+  totalBenefits: "Avantages totaux",
 
   //links
   departmentAndAgenciesLink: "https://www.canada.ca/fr/gouvernement/min.html",
