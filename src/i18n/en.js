@@ -55,4 +55,11 @@ export const en = {
 
   //site title
   siteTitle: "Benefits Finder",
+
+  //error page
+  somethingWentWrong: "Something went wrong :(",
+
+  //404
+  notFound: "(404) Page not found.",
+  pageDoesntExist: "The following page does not exist",
 };
