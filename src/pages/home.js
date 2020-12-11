@@ -108,7 +108,6 @@ export function Home() {
           {t("pageDescription")}
         </PageDescription>
         <div className="flex mb-12">
-          {/* Question component here */}
           <BenefitsCounter counter={benefitsCount} text={t("totalBenefits")} />
         </div>
         <section
