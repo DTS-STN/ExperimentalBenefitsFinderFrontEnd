@@ -120,7 +120,7 @@ export function Home() {
             eligibleText={t("eligibleButtonText")}
             helpText={t("helpButtonText")}
             othersText={t("othersButtonText")}
-            eligibleCount={0}
+            eligibleCount={benefitsCount}
             helpCount={0}
             othersCount={0}
           />
