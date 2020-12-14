@@ -8,8 +8,6 @@ import { FilteredBenefitsCounter } from "../atoms/FilteredBenefitsCounter";
  */
 export function BenefitFilter(props) {
   const handleClick = (event) => props.onFilter(event.currentTarget.id);
-  const className =
-    "bg-white text-text-gray-dk border border-gray-md hover:bg-bg-gray-dk hover:text-white focus:bg-bg-gray-dk focus:text-white";
 
   return (
     <div className="w-full py-2">
@@ -19,7 +17,8 @@ export function BenefitFilter(props) {
           id="eligible"
           text={props.eligibleText}
           onClick={handleClick}
-          className={className}
+          invert={!props.isSelectedEligible}
+          className={"bg-bg-gray-dk text-white hover:bg-black"}
         >
           <FilteredBenefitsCounter count={props.eligibleCount} />
         </ActionButton>
@@ -27,7 +26,8 @@ export function BenefitFilter(props) {
           id="help"
           text={props.helpText}
           onClick={handleClick}
-          className={className + "ml-0 md:ml-2"}
+          invert={!props.isSelectedHelp}
+          className={"bg-bg-gray-dk text-white hover:bg-black"}
         >
           <FilteredBenefitsCounter count={props.helpCount} />
         </ActionButton>
@@ -35,7 +35,8 @@ export function BenefitFilter(props) {
           id="others"
           text={props.othersText}
           onClick={handleClick}
-          className={className + "ml-0 md:ml-2"}
+          invert={!props.isSelectedOthers}
+          className={"bg-bg-gray-dk text-white hover:bg-black"}
         >
           <FilteredBenefitsCounter count={props.othersCount} />
         </ActionButton>
@@ -59,6 +60,21 @@ BenefitFilter.propTypes = {
    * Displays the number of results of eligible benefits
    */
   eligibleCount: PropTypes.number,
+
+  /**
+   * Indicates eligible button in it's selected stage
+   */
+  isSelectedEligible: PropTypes.bool,
+
+  /**
+   * Indicates help button in it's selected stage
+   */
+  isSelectedHelp: PropTypes.bool,
+
+  /**
+   * Indicates others button in it's selected stage
+   */
+  isSelectedOthers: PropTypes.bool,
 
   /**
    * Button text that displays Potential help

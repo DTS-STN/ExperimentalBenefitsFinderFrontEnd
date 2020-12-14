@@ -13,7 +13,11 @@ export function ActionButton(props) {
           : props.notRound
           ? "rounded-sm"
           : "rounded-md"
-      } shadow-lg ${props.className} text-sm px-4 focus:outline-none`}
+      } shadow-lg ${
+        props.invert
+          ? "bg-white text-text-gray-dk border border-gray-md hover:bg-bg-gray-dk hover:text-white focus:bg-bg-gray-dk focus:text-white"
+          : props.className
+      } text-sm px-4 focus:outline-none`}
       onClick={props.onClick}
       onMouseEnter={props.onHover}
       onMouseLeave={props.onMouseLeave}
@@ -67,6 +71,11 @@ ActionButton.propTypes = {
    * Callback for when a user's mouse leaves the button
    */
   onMouseLeave: PropTypes.func,
+
+  /**
+   * Alternate button style for BenefitsFilter component
+   */
+  invert: PropTypes.bool,
 
   /**
    * css overrides for button

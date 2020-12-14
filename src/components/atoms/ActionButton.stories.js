@@ -13,6 +13,7 @@ export const Primary = Template.bind({});
 export const Rounded = Template.bind({});
 export const WithCounter = Template.bind({});
 export const StartAgain = Template.bind({});
+export const Selected = Template.bind({});
 
 Primary.args = {
   text: "Example Action 🚀",
@@ -26,6 +27,8 @@ Rounded.args = {
 WithCounter.args = {
   text: "Example With Counter",
   children: <FilteredBenefitsCounter count={10} />,
+  className:
+    "bg-white text-text-gray-dk border border-gray-md hover:bg-bg-gray-dk hover:text-white focus:bg-bg-gray-dk focus:text-white",
 };
 
 StartAgain.args = {

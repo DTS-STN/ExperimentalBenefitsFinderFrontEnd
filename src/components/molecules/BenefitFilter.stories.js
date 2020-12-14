@@ -31,6 +31,9 @@ Eligible.args = {
   eligibleCount: 15,
   helpCount: 8,
   othersCount: 30,
+  isSelectedEligible: true,
+  isSelectedHelp: false,
+  isSelectedOthers: false,
 };
 
 PotentialHelp.args = {
@@ -41,6 +44,9 @@ PotentialHelp.args = {
   eligibleCount: 15,
   helpCount: 8,
   othersCount: 30,
+  isSelectedEligible: false,
+  isSelectedHelp: true,
+  isSelectedOthers: false,
 };
 
 Others.args = {
@@ -51,4 +57,7 @@ Others.args = {
   eligibleCount: 15,
   helpCount: 8,
   othersCount: 30,
+  isSelectedEligible: false,
+  isSelectedHelp: false,
+  isSelectedOthers: true,
 };
