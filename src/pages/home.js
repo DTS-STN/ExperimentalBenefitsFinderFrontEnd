@@ -108,7 +108,11 @@ export function Home() {
           {t("pageDescription")}
         </PageDescription>
         <section className="flex mb-12">
-          <BenefitsCounter counter={benefitsCount} text={t("totalBenefits")} />
+          <BenefitsCounter
+            className="text-center m-auto mr-0 px-6"
+            counter={benefitsCount}
+            text={t("totalBenefits")}
+          />
         </section>
         <section
           className="border-t border-b pt-2 pb-2"
