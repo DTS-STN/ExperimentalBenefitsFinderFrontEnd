@@ -25,7 +25,6 @@ Rounded.args = {
 
 WithCounter.args = {
   text: "Example With Counter",
-  invert: true,
   children: <FilteredBenefitsCounter count={10} />,
 };
 

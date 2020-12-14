@@ -49,11 +49,6 @@ ActionButton.propTypes = {
   id: PropTypes.string,
 
   /**
-   * Inverted color styling on the buttons as an default option
-   */
-  invert: PropTypes.bool,
-
-  /**
    * Boolean flag that specifies the button should be rounded
    */
   rounded: PropTypes.bool,
