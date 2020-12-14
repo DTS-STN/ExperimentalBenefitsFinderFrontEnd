@@ -24,4 +24,8 @@ BenefitsCounter.propTypes = {
    * text under the number of benefits
    */
   text: PropTypes.string,
+  /**
+   * pass css class in parent component
+   */
+  className: PropTypes.string,
 };
