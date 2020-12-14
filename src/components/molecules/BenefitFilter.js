@@ -8,6 +8,8 @@ import { FilteredBenefitsCounter } from "../atoms/FilteredBenefitsCounter";
  */
 export function BenefitFilter(props) {
   const handleClick = (event) => props.onFilter(event.currentTarget.id);
+  const className =
+    "bg-white text-text-gray-dk border border-gray-md hover:bg-bg-gray-dk hover:text-white focus:bg-bg-gray-dk focus:text-white";
 
   return (
     <div className="w-full py-2">
@@ -16,26 +18,24 @@ export function BenefitFilter(props) {
         <ActionButton
           id="eligible"
           text={props.eligibleText}
-          invert={true}
           onClick={handleClick}
+          className={className}
         >
           <FilteredBenefitsCounter count={props.eligibleCount} />
         </ActionButton>
         <ActionButton
           id="help"
           text={props.helpText}
-          invert={true}
           onClick={handleClick}
-          classInvert={"ml-0 md:ml-2"}
+          className={className + "ml-0 md:ml-2"}
         >
           <FilteredBenefitsCounter count={props.helpCount} />
         </ActionButton>
         <ActionButton
           id="others"
           text={props.othersText}
-          invert={true}
           onClick={handleClick}
-          classInvert={"ml-0 md:ml-2"}
+          className={className + "ml-0 md:ml-2"}
         >
           <FilteredBenefitsCounter count={props.othersCount} />
         </ActionButton>

@@ -23,7 +23,7 @@ it("renders ActionButton in its rounded state", () => {
 it("renders ActionButton in its withCounter state", () => {
   render(<WithCounter {...WithCounter.args} />);
   expect(screen.getByRole("button")).toHaveTextContent(WithCounter.args.text);
-  expect(screen.getByRole("button").classList).toContain("bg-white");
+  expect(screen.getByRole("button").classList).toContain("justify-center");
 });
 
 it("renders StartAgainButton in its icon state", () => {
