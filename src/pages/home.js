@@ -107,9 +107,9 @@ export function Home() {
         <PageDescription dataCy={"home-page-description"}>
           {t("pageDescription")}
         </PageDescription>
-        <div className="flex mb-12">
+        <section className="flex mb-12">
           <BenefitsCounter counter={benefitsCount} text={t("totalBenefits")} />
-        </div>
+        </section>
         <section
           className="border-t border-b pt-2 pb-2"
           data-cy="eligibleBenefitsHeader"
