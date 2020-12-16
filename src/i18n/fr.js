@@ -8,6 +8,13 @@ export const fr = {
   benefitsNextPage: "page suivante des avantages",
   benefitsPreviousPage: "page des avantages précédente",
   eligibleBenefitsHeader: "Avantages qui s'appliquent à vous",
+  filterHeader: "Filtrer par",
+  eligibleButtonText: "Avantages éligibles",
+  helpButtonText: "Aide potentielle",
+  othersButtonText: "Autres",
+  emailButtonText: "Email",
+  printButtonText: "Impression",
+  totalBenefits: "Avantages totaux",
 
   //links
   departmentAndAgenciesLink: "https://www.canada.ca/fr/gouvernement/min.html",

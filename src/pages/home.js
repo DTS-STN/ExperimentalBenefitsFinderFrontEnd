@@ -20,7 +20,10 @@ import { useHistory } from "react-router-dom";
 import { Page } from "../components/organisms/Page";
 import { PageDescription } from "../components/atoms/PageDescription";
 import { Title } from "../components/atoms/Title";
+import { BenefitFilter } from "../components/molecules/BenefitFilter";
 import { BenefitGrid } from "../components/organisms/BenefitGrid";
+import { BenefitsCounter } from "../components/atoms/BenefitsCounter";
+import { EmailPrint } from "../components/molecules/EmailPrint";
 import { ErrorPage } from "../components/organisms/ErrorPage";
 
 export function Home() {
@@ -118,11 +121,27 @@ export function Home() {
         <PageDescription dataCy={"home-page-description"}>
           {t("pageDescription")}
         </PageDescription>
+        <section className="flex mb-12">
+          <BenefitsCounter
+            className="text-center m-auto mr-0 px-6"
+            counter={benefitsCount}
+            text={t("totalBenefits")}
+          />
+        </section>
         <section
           className="border-t border-b pt-2 pb-2"
           data-cy="eligibleBenefitsHeader"
         >
           <h2 className="text-3xl mb-2">{t("eligibleBenefitsHeader")}</h2>
+          <BenefitFilter
+            text={t("filterHeader")}
+            eligibleText={t("eligibleButtonText")}
+            helpText={t("helpButtonText")}
+            othersText={t("othersButtonText")}
+            eligibleCount={benefitsCount}
+            helpCount={0}
+            othersCount={0}
+          />
           <BenefitGrid
             dataCy={"home-page-benefit-grid"}
             benefitMoreInfoButtonText={t("benefitsMoreInformation")}
@@ -135,6 +154,10 @@ export function Home() {
             onBenefitSelect={onBenefitSelect}
             onMoreInfoClick={onBenefitMoreInfo}
             benefits={benefitsData}
+          />
+          <EmailPrint
+            emailText={t("emailButtonText")}
+            printText={t("printButtonText")}
           />
         </section>
       </main>

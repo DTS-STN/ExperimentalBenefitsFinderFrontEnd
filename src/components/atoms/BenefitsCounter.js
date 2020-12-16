@@ -6,11 +6,11 @@ import PropTypes from "prop-types";
  */
 export function BenefitsCounter(props) {
   return (
-    <div className="text-center m-auto">
-      <div className="-mb-8" style={{ fontSize: "100px" }}>
+    <div className={props.className}>
+      <div className="-mb-4" style={{ fontSize: "100px" }}>
         {props.counter}
       </div>
-      <p className="text-base">{props.text}</p>
+      <p className="text-sm">{props.text}</p>
     </div>
   );
 }
@@ -24,4 +24,8 @@ BenefitsCounter.propTypes = {
    * text under the number of benefits
    */
   text: PropTypes.string,
+  /**
+   * pass css class in parent component
+   */
+  className: PropTypes.string,
 };

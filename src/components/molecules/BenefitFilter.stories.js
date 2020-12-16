@@ -18,9 +18,6 @@ Primary.args = {
   eligibleText: "Eligible benefits",
   helpText: "Potential help",
   othersText: "Others",
-  isSelectedEligible: false,
-  isSelectedHelp: false,
-  isSelectedOthers: false,
   eligibleCount: 15,
   helpCount: 8,
   othersCount: 30,
@@ -31,12 +28,12 @@ Eligible.args = {
   eligibleText: "Eligible benefits",
   helpText: "Potential help",
   othersText: "Others",
-  isSelectedEligible: true,
-  isSelectedHelp: false,
-  isSelectedOthers: false,
   eligibleCount: 15,
   helpCount: 8,
   othersCount: 30,
+  isSelectedEligible: true,
+  isSelectedHelp: false,
+  isSelectedOthers: false,
 };
 
 PotentialHelp.args = {
@@ -44,12 +41,12 @@ PotentialHelp.args = {
   eligibleText: "Eligible benefits",
   helpText: "Potential help",
   othersText: "Others",
-  isSelectedEligible: false,
-  isSelectedHelp: true,
-  isSelectedOthers: false,
   eligibleCount: 15,
   helpCount: 8,
   othersCount: 30,
+  isSelectedEligible: false,
+  isSelectedHelp: true,
+  isSelectedOthers: false,
 };
 
 Others.args = {
@@ -57,10 +54,10 @@ Others.args = {
   eligibleText: "Eligible benefits",
   helpText: "Potential help",
   othersText: "Others",
-  isSelectedEligible: false,
-  isSelectedHelp: false,
-  isSelectedOthers: true,
   eligibleCount: 15,
   helpCount: 8,
   othersCount: 30,
+  isSelectedEligible: false,
+  isSelectedHelp: false,
+  isSelectedOthers: true,
 };
