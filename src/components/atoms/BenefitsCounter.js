@@ -7,7 +7,11 @@ import PropTypes from "prop-types";
 export function BenefitsCounter(props) {
   return (
     <div className={props.className}>
-      <div className="-mb-4" style={{ fontSize: "100px" }}>
+      <div
+        className="-mb-4"
+        data-cy={props.dataCy}
+        style={{ fontSize: "100px" }}
+      >
         {props.counter}
       </div>
       <p className="text-sm">{props.text}</p>
@@ -28,4 +32,8 @@ BenefitsCounter.propTypes = {
    * pass css class in parent component
    */
   className: PropTypes.string,
+  /**
+   * This is for adding an id for testing in cypress
+   */
+  dataCy: PropTypes.string,
 };
