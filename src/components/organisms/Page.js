@@ -39,13 +39,13 @@ export function Page(props) {
         {props.children}
       </div>
       <div className="w-full flex flex-col flex-grow justify-end">
-        <div className="w-full md:w-2/3 m-0 md:mr-auto md:ml-auto p-4 md:p-0 mmflex sm:flex-col justify-between  ">
+        <div className="w-full md:w-2/3 m-0 md:mr-auto md:ml-auto p-4 md:p-0 justify-between flex flex-col md:flex-row">
           <ActionButton
-            className={"shadow-none hover:text-black"}
+            className={"shadow-none hover:text-black "}
             id="report"
             icon="mt-1 mr-1 icon-play_arrow"
             text="Report a problem or mistake on this page"
-            invert="true"
+            invert={true}
             // dataTestId="envelopIcon"
           />
           <ActionButton
@@ -53,7 +53,7 @@ export function Page(props) {
             id="report"
             icon="mt-1 mr-1 icon-share"
             text="Share this page"
-            invert="true"
+            invert={true}
             // dataTestId="envelopIcon"
           />
         </div>
