@@ -6,6 +6,34 @@ describe("Intercept", () => {
     beforeEach(() => { 
       cy.visit("/");
     });
+
+    // The 
+    it("The benefit grid appears on the homepage", () => {
+        cy.visit( 'http://localhost:3000/')
+        cy.get('[ data-cy="home-page-benefit-grid"]').should('be.visible')
+    
+    });
+
+    // Check to see if a number for the benefit count is returned from the server
+it('always gets the new data for the count for the benefits returned from the server', () => {
+    cy.intercept('**/benefits/count', req => {
+        // if the response was cached
+      delete req.headers['if-none-match']
+    }).as('counts')
+    cy.visit('/')
+    cy.wait('@counts')
+      .its('response')
+      .should('deep.include', {
+        statusCode: 200,
+        statusMessage: 'OK'
+      })
+      .and('have.property', 'body') // yields the "response.body"
+      .then(body => {
+        // since we do not know the number of items
+        // just check if it is a number
+        expect(body).to.be.a('number')
+      })
+  })
   
     it("landing page is loaded", () => {
       // Test the page at initial load
@@ -26,64 +54,40 @@ describe("Intercept", () => {
       cy.get("[data-cy=eligibleBenefitsHeader]").should('be.visible')
       cy.get("[data-cy=home-page-benefit-counter]").should('be.visible')
     });
+
+// Mocked results for count and benefits. 
+
+    it("Mocked number for benefit Count appears in the UI", () => {
+        // The number of the benefits is returned from the server, this number is being mocked here
+        cy.intercept("/benefits/count", { fixture: "benefit-count.json" }).as("getCount");
   
-    it.only("see if the count is working", () => {
-      //
-      let message = "whoa, this does not exist";
+        cy.visit("http://localhost:3000/");
+  
+        // pass an array of Route Aliases that forces Cypress to wait
+        // until it sees a response for each request that matches
+        // each of these aliases   cy.wait(['@getBenefits', '@getCount'])
+        cy.wait(["@getCount"]);
+        // these commands will not run until the wait command resolves above
+        cy.get("[data-cy=home-page-benefit-counter]").should("be.visible").and("contain.text", "3");
+      });
+  
+    it.only("Mocked benefit text is added to the benefit card boxes ", () => {
+  // the benefit text is returned from the server, the text here is being mocked
+    cy.intercept('benefits*', { fixture: 'benefit-cards.json' }).as('getBenefits')
 
-      // Stub a response to PUT comments/ ****
-      cy.intercept(
-        {
-          method: "GET",
-          url: "**/benefits/*",
-        },
-        {
-          statusCode: 500,
-          body: { error: message }, // stub returns above message
-          headers: { "access-control-allow-origin": "*" }
-          
-        }
-      ).as("putComment");
-      cy.wait("@putComment");
+     cy.visit('http://localhost:3000/')
 
-      // our 404 statusCode logic in scripts.js executed
-      cy.get("[data-testid=error-message]").should("contain", message);
-
-      // Commented out
-      //     cy.intercept('GET', '**/benefits/count', '3')
-      //   cy.intercept({
-      //     pathname: '/benefits/count',
-      //     // query: {
-      //     //   _limit: '3'
-      //     // }
-      //   }, {
-      //       fixture: 'benefit-count.json',
-      //       headers: {
-      //         'Access-Control-Allow-Origin': '*'
-      //       }
-      //   }).as('count')
-
-      //   cy.get("[data-cy=home-page-benefit-counter]").should('be.visible')
+     cy.wait('@getBenefits')
+     // these commands will not run until the wait command resolves above
+     cy.get('[data-testid=mocked-benefit1]').should('be.visible').and('contain.text', 'mock')
     });
 
 
-    it("see if the count is working", () => {
-    
-    cy.intercept('benefits*', { fixture: 'benefit-cards.json' }).as('getBenefits')
-    cy.intercept('/benefits/count', { fixture: 'benefit-count.json' }).as('getCount')
-    
-    // visit the dashboard, which should make requests that match
-    // the two routes above
-    cy.visit('http://localhost:3000/')
-    
-    // pass an array of Route Aliases that forces Cypress to wait
-    // until it sees a response for each request that matches
-    // each of these aliases
-    cy.wait(['@getBenefits', '@getCount'])
-    
-    // these commands will not run until the wait command resolves above
-    
-    cy.get("[data-cy=home-page-benefit-counter]").should('be.visible').and('contain.text', '3')
-});
+
+
+
+
+
+
 
 });

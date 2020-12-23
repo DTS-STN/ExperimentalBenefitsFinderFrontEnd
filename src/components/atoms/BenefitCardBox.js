@@ -12,6 +12,7 @@ export function BenefitCardBox(props) {
       }`}
       style={{ height: "300px" }}
       data-testid={props.dataTestId}
+      data-cy-button={props.dataCyButton}
     >
       {props.children}
     </div>
@@ -28,6 +29,10 @@ BenefitCardBox.propTypes = {
    * test id for unit tests
    */
   dataTestId: PropTypes.string,
+  /**
+   * test id for e2e tests
+   */
+  dataCyButton: PropTypes.string,
   /**
    * children elements of the box
    */

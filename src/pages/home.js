@@ -140,6 +140,7 @@ export function Home() {
             helpText={t("helpButtonText")}
             othersText={t("othersButtonText")}
             eligibleCount={benefitsCount}
+            dataCy={"benefitFilter"}
             helpCount={0}
             othersCount={0}
           />

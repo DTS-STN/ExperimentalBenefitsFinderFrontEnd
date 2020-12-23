@@ -16,12 +16,8 @@ describe("the requests", () => {
         })
      
 
-       it.skip("It - placeholder", () => {
-        cy.visit( 'http://localhost:3000/')
 
-    });
-
-    it("Stub 500 error - only works first time otherwise the response is cached.", () => {
+    it("Stub 500 error for the count- only works first time otherwise the response is cached.", () => {
       cy.visit("http://localhost:3000/");
       // message to intergect into the page.
       let message = "500?";
@@ -52,24 +48,7 @@ describe("the requests", () => {
 // Remote Address: 127.0.0.1:53781
 // Referrer Policy: strict-origin-when-cross-origin
 
-it('always gets the new data for the count', () => {
-  cy.intercept('**/benefits/count', req => {
-    delete req.headers['if-none-match']
-  }).as('counts')
-  cy.visit('/')
-  cy.wait('@counts')
-    .its('response')
-    .should('deep.include', {
-      statusCode: 200,
-      statusMessage: 'OK'
-    })
-    .and('have.property', 'body') // yields the "response.body"
-    .then(body => {
-      // since we do not know the number of items
-      // just check if it is a number
-      expect(body).to.be.a('number')
-    })
-})
+
 
 
 

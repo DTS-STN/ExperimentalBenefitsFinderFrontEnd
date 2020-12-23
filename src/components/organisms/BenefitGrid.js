@@ -96,6 +96,7 @@ export function BenefitGrid(props) {
           onMoreInfoClick={props.onMoreInfoClick}
           onBenefitSelect={props.onBenefitSelect}
           checkBoxAriaLabelBy={benefitData.checkBoxAriaLabelBy}
+          dataCy={"benefit-card-title"}
         />
       );
     }
