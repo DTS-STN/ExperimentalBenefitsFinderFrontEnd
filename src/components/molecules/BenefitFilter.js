@@ -20,7 +20,10 @@ export function BenefitFilter(props) {
           invert={!props.isSelectedEligible}
           className={"bg-bg-gray-dk text-white hover:bg-black"}
         >
-          <FilteredBenefitsCounter count={props.eligibleCount} />
+          <FilteredBenefitsCounter
+            count={props.eligibleCount}
+            dataCy={"filter-counter"}
+          />
         </ActionButton>
         <ActionButton
           id="help"
@@ -29,7 +32,10 @@ export function BenefitFilter(props) {
           invert={!props.isSelectedHelp}
           className={"bg-bg-gray-dk text-white hover:bg-black"}
         >
-          <FilteredBenefitsCounter count={props.helpCount} />
+          <FilteredBenefitsCounter
+            count={props.helpCount}
+            dataCy={"help-counter"}
+          />
         </ActionButton>
         <ActionButton
           id="others"
@@ -38,7 +44,10 @@ export function BenefitFilter(props) {
           invert={!props.isSelectedOthers}
           className={"bg-bg-gray-dk text-white hover:bg-black"}
         >
-          <FilteredBenefitsCounter count={props.othersCount} />
+          <FilteredBenefitsCounter
+            count={props.othersCount}
+            dataCy={"other-counter"}
+          />
         </ActionButton>
       </div>
     </div>
@@ -100,4 +109,8 @@ BenefitFilter.propTypes = {
    * Handler when filter options clicked
    */
   onFilter: PropTypes.func,
+  /**
+   * This is for adding an id for testing in cypress
+   */
+  dataCy: PropTypes.string,
 };

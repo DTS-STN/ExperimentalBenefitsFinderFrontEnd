@@ -33,6 +33,9 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,md}": [
       "prettier --write"
+    ],
+    "cypress/**/*.{js, jsx, ts, tsx, json, md}": [
+      "prettier --write"
     ]
   },
   "scripts": {
@@ -48,10 +51,10 @@
     "storybook": "npm-run-all build:tailwind --parallel watch:tailwind storybook:start",
     "build:storybook": "build-storybook -s public",
     "build-storybook": "npm run build:tailwind && npm run build:storybook",
-    "lint": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\"",
+    "lint": "prettier --write \"src/**/*.{js,jsx,ts,tsx,json,md}\" --write \"cypress/**/*.{js,jsx,ts,tsx,json,md}\"",
     "cypress:test": "NODE_ENV=production cypress run",
     "cypress:open": "node ./node_modules/.bin/cypress open",
-    "lint:test": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,md}\""
+    "lint:test": "prettier --check \"src/**/*.{js,jsx,ts,tsx,json,md}\" --check \"cypress/**/*.{js,jsx,ts,tsx,json,md}\""
   },
   "eslintConfig": {
     "extends": "react-app"
@@ -81,7 +84,7 @@
     "@testing-library/react": "^9.5.0",
     "@testing-library/user-event": "^7.1.2",
     "babel-loader": "^8.1.0",
-    "cypress": "^5.3.0",
+    "cypress": "^6.2.0",
     "fetch-mock": "^9.11.0",
     "react-is": "^16.13.1",
     "redux-mock-store": "^1.5.4"

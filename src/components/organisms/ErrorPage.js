@@ -9,7 +9,9 @@ export function ErrorPage(props) {
   return (
     <Page>
       <main className="w-full h-full flex flex-col justify-center items-center font-sans">
-        <h2 className="text-3xl md:text-6xl">{props.errorTitle}</h2>
+        <h2 className="text-3xl md:text-6xl" data-testid="error-message-title">
+          {props.errorTitle}
+        </h2>
         <pre
           className="w-full h-auto bg-gray-500 rounded-lg border border-red-400 whitespace-pre-wrap"
           data-testid="error-message"

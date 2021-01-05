@@ -123,6 +123,7 @@ export function Home() {
         </PageDescription>
         <section className="flex mb-12">
           <BenefitsCounter
+            dataCy={"home-page-benefit-counter"}
             className="text-center m-auto mr-0 px-6"
             counter={benefitsCount}
             text={t("totalBenefits")}
@@ -139,6 +140,7 @@ export function Home() {
             helpText={t("helpButtonText")}
             othersText={t("othersButtonText")}
             eligibleCount={benefitsCount}
+            dataCy={"benefitFilter"}
             helpCount={0}
             othersCount={0}
           />
