@@ -2,77 +2,73 @@
 /// <reference types="Cypress" />
 
 describe("Benefits cards spec", () => {
-  
-    beforeEach(() => { 
-      cy.visit("/");
-    });
+  beforeEach(() => {
+    cy.visit("/");
+  });
 
-    // The 
-    it("The benefit grid appears on the homepage", () => {
-        cy.visit( 'http://localhost:3000/')
-        cy.get('[ data-cy="home-page-benefit-grid"]').should('be.visible')
-        cy.screenshot('grid')
-    
-    });
+  // The
+  it("The benefit grid appears on the homepage", () => {
+    cy.visit("http://localhost:3000/");
+    cy.get('[ data-cy="home-page-benefit-grid"]').should("be.visible");
+    cy.screenshot("grid");
+  });
 
-    // Check to see if a number for the benefit count is returned from the server
-it('always gets the new data for the count for the benefits returned from the server', () => {
-    cy.intercept('**/benefits/count', req => {
-        // if the response was cached
-      delete req.headers['if-none-match']
-    }).as('counts')
-    cy.visit('/')
-    cy.wait('@counts')
-      .its('response')
-      .should('deep.include', {
+  // Check to see if a number for the benefit count is returned from the server
+  it("always gets the new data for the count for the benefits returned from the server", () => {
+    cy.intercept("**/benefits/count", (req) => {
+      // if the response was cached
+      delete req.headers["if-none-match"];
+    }).as("counts");
+    cy.visit("/");
+    cy.wait("@counts")
+      .its("response")
+      .should("deep.include", {
         statusCode: 200,
-        statusMessage: 'OK'
+        statusMessage: "OK",
       })
-      .and('have.property', 'body') // yields the "response.body"
-      .then(body => {
+      .and("have.property", "body") // yields the "response.body"
+      .then((body) => {
         // since we do not know the number of items
         // just check if it is a number
-        expect(body).to.be.a('number')
-      })
-  })
-  
-    it.only("benefits header is on page", () => {
-      cy.get("[data-cy=eligibleBenefitsHeader]").should('be.visible')
-      
-    });
-
-// Mocked results for count and benefits. 
-
-    it("Mocked number for benefit Count appears in the UI", () => {
-        // The number of the benefits is returned from the server, this number is being mocked here
-        cy.intercept("/benefits/count", { fixture: "benefit-count.json" }).as("getCount");
-  
-        cy.visit("http://localhost:3000/");
-  
-        // pass an array of Route Aliases that forces Cypress to wait
-        // each of these aliases   cy.wait(['@getBenefits', '@getCount'])
-        cy.wait(["@getCount"]);
-        // these commands will not run until the wait command resolves above
-        cy.get("[data-cy=home-page-benefit-counter]").should("be.visible").and("contain.text", "3");
+        expect(body).to.be.a("number");
       });
-  
-    it("Mocked benefit text is added to the benefit card boxes ", () => {
-      // the benefit text is returned from the server, the text here is being mocked
-       cy.intercept("benefits*", { fixture: "benefit-cards.json" }).as("getBenefits");
+  });
 
-       cy.visit("http://localhost:3000/");
+  it.only("benefits header is on page", () => {
+    cy.get("[data-cy=eligibleBenefitsHeader]").should("be.visible");
+  });
 
-       cy.wait("@getBenefits");
-      // these commands will not run until the wait command resolves above
-       cy.get("[data-testid=mocked-benefit1]").should("be.visible").and("contain.text", "mock");
-    });
+  // Mocked results for count and benefits.
 
+  it("Mocked number for benefit Count appears in the UI", () => {
+    // The number of the benefits is returned from the server, this number is being mocked here
+    cy.intercept("/benefits/count", { fixture: "benefit-count.json" }).as(
+      "getCount"
+    );
 
+    cy.visit("http://localhost:3000/");
 
+    // pass an array of Route Aliases that forces Cypress to wait
+    // each of these aliases   cy.wait(['@getBenefits', '@getCount'])
+    cy.wait(["@getCount"]);
+    // these commands will not run until the wait command resolves above
+    cy.get("[data-cy=home-page-benefit-counter]")
+      .should("be.visible")
+      .and("contain.text", "3");
+  });
 
+  it("Mocked benefit text is added to the benefit card boxes ", () => {
+    // the benefit text is returned from the server, the text here is being mocked
+    cy.intercept("benefits*", { fixture: "benefit-cards.json" }).as(
+      "getBenefits"
+    );
 
+    cy.visit("http://localhost:3000/");
 
-
-
-
+    cy.wait("@getBenefits");
+    // these commands will not run until the wait command resolves above
+    cy.get("[data-testid=mocked-benefit1]")
+      .should("be.visible")
+      .and("contain.text", "mock");
+  });
 });
