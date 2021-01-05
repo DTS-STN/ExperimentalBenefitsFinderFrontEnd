@@ -33,6 +33,9 @@
   "lint-staged": {
     "src/**/*.{js,jsx,ts,tsx,json,md}": [
       "prettier --write"
+    ],
+    "cypress/**/*.{js, jsx, ts, tsx, json, md}": [
+      "prettier --write"
     ]
   },
   "scripts": {
