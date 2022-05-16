@@ -10,7 +10,7 @@
   "dependencies": {
     "axios": "^0.19.2",
     "chokidar-cli": "^2.1.0",
-    "cross-fetch": "^3.0.6",
+    "cross-fetch": "^3.1.5",
     "husky": "^4.3.0",
     "i18next": "^19.8.2",
     "lint-staged": "^10.4.0",
